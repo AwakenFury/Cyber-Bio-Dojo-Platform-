@@ -1,4 +1,4 @@
-![Cyber-Bio-Dojo-Platform-](<asset/image_77a96b08.png>)
+![Cyber-Bio-Dojo-Platform-](<asset/ChatGPT Image Jul 9, 2026, 01_10_42 PM.png>)
 ![Status](https://img.shields.io/badge/status-experimental-red)
 ![ESP32](https://img.shields.io/badge/platform-ESP32-blue)
 

@@ -12,7 +12,7 @@
 
 ### The Cyber-Bio Health Framework
 
-The Cyber-Bio Dojo Platform is an open research project that blends embedded systems, wearable biosensors, AI, and modular equipment into a unified human performance laboratory. Rather than a standard gym, it serves as a research environment where workouts train adaptive AI systems and digital twin models.Core ArchitectureAI Sensei Platform: Manages user assessment, equipment training data, and visualization dashboards.
+The Cyber-Bio Health Platform is an open research project that blends embedded systems, wearable biosensors, AI, and modular equipment into a unified human performance laboratory. Rather than a standard gym, it serves as a research environment where workouts train adaptive AI systems and digital twin models.Core ArchitectureAI Sensei Platform: Manages user assessment, equipment training data, and visualization dashboards.
 
 ### Cyber-Bio Data Engine:
  - Streams real-time input from wearables, biosensors, and computer vision cameras.

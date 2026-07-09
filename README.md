@@ -12,7 +12,6 @@
 
 
 
-
 Cyber-Bio Dojo
 AI-Powered Human Performance Laboratory
 Overview
@@ -168,11 +167,14 @@ Digital Twin development
 Human-computer interaction
 Real-time visualization
 AI-assisted performance optimization
-
-
-
-Core Platform ArchitectureCentral Framework: Unified command environment bridging real-time biosignals with environmental controls.Modular Extrusion Layout: Adaptable 2020 composite-aluminum hardware frames for rapid component swapping.Spatial Intelligence Engine: RF radar and Wi-Fi state sensing to map user movement without wearable cameras.Interactive Hardware StationsSmart Scale & Augmentation PlatformLoad-cell arrays for precise weight distribution analysis.BIA body composition tracking and balance telemetry.AI Sensei Kiosk Terminal32-inch holographic neural interface display.Face/voice recognition paired with real-time posture correction.Telemetry Training TargetsSensor-embedded wooden dummy and makiwara striking posts.Pressure-reactive impact zones mapping strike location and velocity.Environmental Automation & RecoveryDynamic Floor Guidance: Pressure-sensitive smart mats projecting lighted navigation paths toward your next station.Cryo-Recovery Integration: Automated cold salt-bath tanks with integrated biometric vitals monitoring.Neural Command Center: Overlooking cockpit featuring a neural-sensor fusion engine for master data viewing.
-
+Related Cyber-Bio Projects
+BioSignal Interface — Biosignal acquisition and wearable communication
+BioWearable Neural Core — Wearable physiological monitoring
+BioWearable Scope ESP32-S3 — Real-time biosignal dashboards
+Cyber-Bio Neural Interface Framework — EMG and neural signal processing
+Cyber-Bio Neural Perception HUD — Heads-up visualization and adaptive feedback
+Cyber-Bio Security — Secure device communication and system integrity
+ESP32 Spatial Intelligence Framework — Environmental awareness and sensing
 
 
 Related Cyber-Bio Projects

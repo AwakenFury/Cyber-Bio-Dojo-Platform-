@@ -1,11 +1,11 @@
-![Cyber-Bio-Dojo-Platform-](<asset/ChatGPT Image Jul 9, 2026, 01_10_42 PM.png>)
+![Cyber-Bio-Health-Framework](<asset/ChatGPT Image Jul 9, 2026, 01_10_42 PM.png>)
 ![Status](https://img.shields.io/badge/status-experimental-red)
 ![ESP32](https://img.shields.io/badge/platform-ESP32-blue)
 
 
 
 <p align="center">
-  <a href="https://awakenfury.github.io/Cyber-Bio-Dojo-Platform-/">
+  <a href="https://awakenfury.github.io/Cyber-Bio-Health-Framework/">
     🌐 Live Demo
   </a>
 </p>

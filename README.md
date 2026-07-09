@@ -1,3 +1,16 @@
+![ARP-TABLE-GUARD
+](<asset/ChatGPT Image Jul 5, 2026, 02_11_52 AM.png>)
+![Status](https://img.shields.io/badge/status-experimental-red)
+![ESP32](https://img.shields.io/badge/platform-ESP32-blue)
+
+
+
+<p align="center">
+  <a href="https://awakenfury.github.io/Cyber-Bio-Dojo-Platform-/">
+    🌐 Live Demo
+  </a>
+</p>
+
 
 
 

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-Bio Dojo Terminal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        /* Cyberpunk scanline and glow effects */
+        body {
+            background-color: #030712;
+            color: #10b981;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .neon-border {
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2), inset 0 0 10px rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        .neon-text-blue {
+            color: #38bdf8;
+            text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+        }
+        .pulse-fast {
+            animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col justify-between">
+
+    <!-- HEADER STATUS BAR -->
+    <header class="w-full neon-border bg-gray-950/80 p-4 rounded-lg flex flex-wrap justify-between items-center gap-4 mb-6">
+        <div>
+            <h1 class="text-xl font-bold tracking-widest text-emerald-400">CYBER-BIO DOJO // TERMINAL_v1.0.4</h1>
+            <p class="text-xs text-emerald-600">SYSTEM STATUS: <span class="text-emerald-400 animate-pulse">ONLINE</span></p>
+        </div>
+        <!-- Environment & Wi-Fi Telemetry -->
+        <div class="flex items-center gap-6 text-sm">
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-600">ROOM_TEMP:</span>
+                <span class="font-bold text-sky-400" id="room-temp">22.4°C</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-600">STRONGEST_AP:</span>
+                <span class="font-bold text-sky-400" id="wifi-signal">DOJO_CORE_5G (-42 dBm)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN INTERFACE SPLIT -->
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-grow">
+        
+        <!-- LEFT COLUMN: ACCESS PORTAL (LOGIN & LOGS) -->
+        <div class="lg:col-span-1 flex flex-col gap-6">
+            <!-- Auth Module -->
+            <section class="neon-border bg-gray-950/80 p-6 rounded-lg flex-grow flex flex-col justify-between">
+                <div>
+                    <h2 class="text-md font-bold mb-4 uppercase text-sky-400 border-b border-sky-500/30 pb-2">// WARRIOR_AUTH</h2>
+                    <form onsubmit="event.preventDefault(); alert('Neural authorization request sent to host...');" class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase text-emerald-600 mb-1">Warrior ID / Neural Node</label>
+                            <input type="text" placeholder="AF-8472" class="w-full bg-gray-900 border border-emerald-500/30 rounded px-3 py-2 text-emerald-400 focus:outline-none focus:border-emerald-400 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-emerald-600 mb-1">Biometric Passkey</label>
+                            <input type="password" placeholder="••••••••" class="w-full bg-gray-900 border border-emerald-500/30 rounded px-3 py-2 text-emerald-400 focus:outline-none focus:border-emerald-400 text-sm">
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-950 hover:bg-emerald-900 border border-emerald-400 text-emerald-400 font-bold py-2 rounded text-sm transition tracking-widest uppercase">
+                            Initialize Link
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="mt-6 pt-4 border-t border-emerald-500/20 text-[10px] text-emerald-700">
+                    WARNING: Unauthorized biometric override attempts will trigger local network lockdown protocol.
+                </div>
+            </section>
+
+            <!-- Last 5 Active Members Log -->
+            <section class="neon-border bg-gray-950/80 p-6 rounded-lg">
+                <h2 class="text-md font-bold mb-3 uppercase text-sky-400 border-b border-sky-500/30 pb-2">// RECENT_ACCESS_LOG</h2>
+                <ul class="space-y-2 text-xs" id="access-logs">
+                    <li class="flex justify-between border-b border-gray-900 pb-1">
+                        <span class="text-emerald-400">Node_AwakenFury</span>
+                        <span class="text-emerald-600">05:14:22 // ACTIVE</span>
+                    </li>
+                    <li class="flex justify-between border-b border-gray-900 pb-1">
+                        <span class="text-emerald-500/70">Node_CyberSamurai</span>
+                        <span class="text-emerald-700">04:32:10 // DISCONNECTED</span>
+                    </li>
+                    <li class="flex justify-between border-b border-gray-900 pb-1">
+                        <span class="text-emerald-500/70">Node_GigaChad_AI</span>
+                        <span class="text-emerald-700">02:15:58 // DISCONNECTED</span>
+                    </li>
+                    <li class="flex justify-between border-b border-gray-900 pb-1">
+                        <span class="text-emerald-500/70">Node_BioHacker_X</span>
+                        <span class="text-emerald-700">01:04:12 // DISCONNECTED</span>
+                    </li>
+                    <li class="flex justify-between pb-1">
+                        <span class="text-emerald-500/70">Node_GhostInTheMat</span>
+                        <span class="text-emerald-700">Yesterday // DISCONNECTED</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- RIGHT TWO COLUMNS: LIVE BIOMETRICS & TARGET CHECKLIST -->
+        <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Live Biometrics Display -->
+            <section class="neon-border bg-gray-950/80 p-6 rounded-lg flex flex-col justify-between">
+                <div>
+                    <h2 class="text-md font-bold mb-4 uppercase text-sky-400 border-b border-sky-500/30 pb-2">// REALTIME_BIOSIGNALS</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-900/50 p-3 border border-emerald-500/10 rounded">
+                            <span class="block text-[10px] text-emerald-600 uppercase">Heart Rate</span>
+                            <span class="text-2xl font-bold text-rose-500 pulse-fast" id="live-hr">72</span> <span class="text-xs text-emerald-600">BPM</span>
+                        </div>
+                        <div class="bg-gray-900/50 p-3 border border-emerald-500/10 rounded">
+                            <span class="block text-[10px] text-emerald-600 uppercase">EMG Muscle Core</span>
+                            <span class="text-2xl font-bold text-emerald-400" id="live-emg">34%</span> <span class="text-xs text-emerald-600">ACTV</span>
+                        </div>
+                        <div class="bg-gray-900/50 p-3 border border-emerald-500/10 rounded">
+                            <span class="block text-[10px] text-emerald-600 uppercase">Fatigue Index</span>
+                            <span class="text-2xl font-bold text-amber-500" id="live-fatigue">18%</span>
+                        </div>
+                        <div class="bg-gray-900/50 p-3 border border-emerald-500/10 rounded">
+                            <span class="block text-[10px] text-emerald-600 uppercase">Hydration Delta</span>
+                            <span class="text-2xl font-bold text-sky-400">82%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Simulated Dynamic Graph Grid -->
+                <div class="mt-6">
+                    <span class="text-[10px] text-emerald-600 block mb-2 uppercase">Neural Telemetry Stream (CSI Phase Shift)</span>
+                    <div class="h-16 flex items-end gap-[2px] bg-gray-900/40 p-2 border border-emerald-500/20 rounded overflow-hidden" id="graph-container">
+                        <!-- Bars dynamically added/mutated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Goals Checklist -->
+            <section class="neon-border bg-gray-950/80 p-6 rounded-lg flex flex-col justify-between">
+                <div>
+                    <h2 class="text-md font-bold mb-4 uppercase text-sky-400 border-b border-sky-500/30 pb-2">// PERFORMANCE_CHECKLIST</h2>
+                    <ul class="space-y-3 text-xs">
+                        <li class="flex items-start gap-3">
+                            <input type="checkbox" checked disabled class="mt-0.5 accent-emerald-500 bg-gray-900 border-emerald-500">
+                            <div>
+                                <span class="line-through text-emerald-700 font-bold">[COMPLETED] BASELINE BIOMETRIC SCAN</span>
+                                <p class="text-[10px] text-emerald-800">Kiosk assessment scale calibration stable.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <input type="checkbox" id="task-2" class="mt-0.5 accent-emerald-500 bg-gray-900 border-emerald-500/50">
+                            <label for="task-2" class="cursor-pointer select-none">
+                                <span class="text-emerald-400 font-bold">[PENDING] 500 IMPACT WATTS: MAKIWARA POST</span>
+                            <label for="task-2" class="cursor-pointer select-none">
+                                <span class="text-emerald-400 font-bold">[PENDING] 500 IMPACT WATTS: MAKIWARA POST</span>
+                                <p class="text-[10px] text-emerald-600">Telemetry striking targets active. Velocity feedback enabled.</p>
+                            </label>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <input type="checkbox" id="task-3" class="mt-0.5 accent-emerald-500 bg-gray-900 border-emerald-500/50">
+                            <label for="task-3" class="cursor-pointer select-none">
+                                <span class="text-emerald-400 font-bold">[PENDING] COLD SALT BATH CRYORecovery</span>
+                                <p class="text-[10px] text-emerald-600">10-minute structural reset immersion profile.</p>
+                            </label>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <input type="checkbox" id="task-4" class="mt-0.5 accent-emerald-500 bg-gray-900 border-emerald-500/50">
+                            <label for="task-4" class="cursor-pointer select-none">
+                                <span class="text-emerald-400 font-bold">[PENDING] EXTRUSION RACK CALIBRATION</span>
+                                <p class="text-[10px] text-emerald-600">Verify 2020 frame alignment parameters via Digital Twin.</p>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-900/30 p-3 border-l-2 border-sky-400 rounded-r text-xs mt-4">
+                    <span class="text-sky-400 font-bold block mb-1">PREVIOUS_SESSION_GOAL:</span>
+                    <p class="text-emerald-500/80">Velocity target achieved (4.2m/s strike avg). Smart Mat path navigation deviation &lt; 3% total error.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="w-full text-center mt-6 text-[10px] text-emerald-700 flex justify-between items-center border-t border-emerald-500/10 pt-4">
+        <span>PROJECT_REF: <a href="https://github.com" target="_blank" class="hover:text-emerald-400 underline">AWAKENFURY/CYBER-BIO-DOJO-PLATFORM-</a></span>
+        <span class="animate-pulse">LOCAL_TIME // FEED_ESTABLISHED</span>
+    </footer>
+
+    <script>
+        // Simulate real-time streaming telemetry
+        setInterval(() => {
+            // Heart Rate variant
+            const hrValue = Math.floor(Math.random() * (85 - 68 + 1)) + 68;
+            document.getElementById('live-hr').innerText = hrValue;
+
+            // EMG Variant
+            const emgValue = Math.floor(Math.random() * (45 - 28 + 1)) + 28;
+            document.getElementById('live-emg').innerText = emgValue + '%';
+
+            // Micro room temp fluctuating slightly
+            const tempVal = (22.2 + Math.random() * 0.4).toFixed(1);
+            document.getElementById('room-temp').innerText = tempVal + '°C';
+        }, 1500);
+
+        // Build telemetry visualization graph simulation
+        const container = document.getElementById('graph-container');
+        const numBars = 35;
+        
+        // Initialize graph elements
+        for(let i = 0; i < numBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bg-emerald-500/40 flex-grow rounded-t transition-all duration-300';
+            bar.style.height = Math.floor(Math.random() * 100) + '%';
+            container.appendChild(bar);
+        }
+
+        // Continually animate graph
+        setInterval(() => {
+            const bars = container.children;
+            for(let i = 0; i < bars.length; i++) {
+                // Mutate height randomly to mimic RF waves/CSI noise packet bursts
+                bars[i].style.height = Math.floor(Math.random() * 100) + '%';
+                if(Math.random() > 0.7) {
+                    bars[i].className = 'bg-sky-500/60 flex-grow rounded-t transition-all duration-300';
+                } else {
+                    bars[i].className = 'bg-emerald-500/40 flex-grow rounded-t transition-all duration-300';
+                }
+            }
+        }, 300);
+    </script>
+</body>
+</html>
